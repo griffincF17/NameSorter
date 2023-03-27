@@ -25,8 +25,9 @@ if (File.Exists(fileName))
             }
 
             //Sorts the names by their last name, then by their first name
-            var sortedNames = names.OrderBy(x => x.Substring(x.IndexOf(' '))).
-                    ThenBy(x => x.Substring(0, x.IndexOf(' ')));
+            var sortedNames = names.OrderBy(x => x.Substring(x.LastIndexOf(' ')))
+                    .ThenBy(x => x.Substring(0, x.IndexOf(' ')))
+                    .ThenBy(x => x.Substring(x.IndexOf(' '), x.LastIndexOf(' ')));
 
             //Prints the sorted names 
             foreach (var name in sortedNames)
