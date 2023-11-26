@@ -25,6 +25,7 @@ if (File.Exists(fileName))
             }
 
             //Sorts the names by their last name, then by their first name
+            //and finally by their middle name
             var sortedNames = names.OrderBy(x => x.Substring(x.LastIndexOf(' ')))
                     .ThenBy(x => x.Substring(0, x.IndexOf(' ')))
                     .ThenBy(x => x.Substring(x.IndexOf(' '), x.LastIndexOf(' ')));
@@ -40,6 +41,8 @@ if (File.Exists(fileName))
     {
         Console.WriteLine(io.Message);
     }
+
+    //Catches all other exceptions
     catch(Exception ex)
     {
         Console.WriteLine(ex.Message);
